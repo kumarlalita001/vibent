@@ -1,0 +1,17 @@
+/* .example::-webkit-scrollbar {
+  display: none;
+}
+.example {
+  -ms-overflow-style: none;
+}
+
+.example::-webkit-scrollbar {
+  width: 2px;
+}
+
+::-webkit-scrollbar {
+  width: 2px;
+}
+::-webkit-scrollbar {
+  height: 5px;
+} */

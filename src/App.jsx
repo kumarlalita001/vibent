@@ -1,24 +1,36 @@
 import React from "react";
-import { Route, Routes } from "react-router-dom";
-import { Home, SideBar } from "./pages/Root";
-import AuthLayout from "./pages/Auth/AuthLayout";
-import SignIn from "./pages/Auth/SignIn";
-import SignUp from "./pages/Auth/SignUp";
-import Footer from "./components/Footer/Footer";
+import { Route, Routes, useLocation } from "react-router-dom";
+import { AuthLayout, SignIn, SignUp } from "./pages/Auth";
+import RootLayout from "./pages/Root/RootLayout";
+import Error from "./pages/Error/Error";
+
+import { Create, Home, Notifications, Profile, Search } from "./pages/Root";
 
 const App = () => {
+  //const isAuth = true;
+
+  const { pathname } = useLocation();
+  console.log(pathname);
+
   return (
-    <div className="bg-navyBlue text-lightBlue min-h-[100vh] ">
+    <div className="bg-black text-gray-100 min-h-[100vh] ">
       <Routes>
         {/* public  routes here */}
         <Route path="/" element={<AuthLayout />}>
-          <Route path="/signin" element={<SignIn />} />
-          <Route path="/signup" element={<SignUp />} />
+          <Route path="signin" element={<SignIn />} />
+          <Route path="signup" element={<SignUp />} />
         </Route>
 
         {/* private routes here */}
-        {/* <Route path="/" element={<Home />} /> */}
-        <Route path="/sidebar" element={<SideBar />} />
+        <Route path="/root" element={<RootLayout />}>
+          <Route path="home" element={<Home />} />
+          <Route path="search" element={<Search />} />
+          <Route path="notification" element={<Notifications />} />
+          <Route path="create" element={<Create />} />
+          <Route path="profile" element={<Profile />} />
+        </Route>
+
+        <Route path="*" element={<Error />} />
       </Routes>
     </div>
   );

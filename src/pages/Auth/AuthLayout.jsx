@@ -1,15 +1,23 @@
-import React from "react";
-import { Outlet, NavLink } from "react-router-dom";
+import React, { useEffect } from "react";
+import { Outlet, NavLink, useLocation, useNavigate } from "react-router-dom";
+import SignIn from "./SignIn";
 
 const AuthLayout = () => {
+  const { pathname } = useLocation();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    pathname == "/" && navigate("/signin");
+  }, [pathname]);
+
   return (
     <div
-      className="min-h-screen flex items-center justify-center bg-cover bg-center"
-      style={{ backgroundImage: "url('/Images/loginBg.webp')" }}
+      className="min-h-screen flex items-center justify-center bg-cover bg-center bg-slate-950"
+      // style={{ backgroundImage: "url('/Images/loginBg.webp')" }}
     >
-      <div className="bg-white p-8 rounded-lg shadow-lg max-w-md w-full ml-2 mr-2">
+      <div className="bg-slate-900  p-8 rounded-lg shadow-lg max-w-md w-full ml-2 mr-2">
         <h2 className="text-2xl font-bold mb-2 text-center">Welcome Back</h2>
-        <p className="text-gray-600 mb-8 text-center">
+        <p className="text-gray-200 mb-8 text-center">
           Welcome back! Please enter your details
         </p>
         <div className="flex justify-around mb-8">
@@ -34,7 +42,7 @@ const AuthLayout = () => {
         <Outlet />
 
         <div className="flex justify-center items-center mt-4">
-          <span className="text-gray-600">Or continue with</span>
+          <span className="text-gray-200">Or continue with</span>
         </div>
         <div className="flex justify-around mt-4">
           <button className="w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center">

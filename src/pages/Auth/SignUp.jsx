@@ -7,21 +7,21 @@ const SignUp = () => {
         <input
           type="text"
           placeholder="Username*"
-          className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+          className="w-full px-4 py-2 bg-inherit border rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
         />
       </div>
       <div className="mb-4">
         <input
           type="email"
           placeholder="Email*"
-          className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+          className="w-full px-4 py-2 border bg-inherit rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
         />
       </div>
       <div className="mb-4">
         <input
           type="password"
           placeholder="Password*"
-          className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
+          className="w-full px-4 py-2 border bg-inherit rounded-md focus:outline-none focus:ring-2 focus:ring-green-500"
         />
       </div>
       <button
